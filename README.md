@@ -15,6 +15,7 @@ Make and activate a virtual environment.
 
 ```bash
 virtualenv -p python3.8 venv
+source venv/bin/activate
 ```
 
 Install an appropriate GPU-accelerated version of [PyTorch](https://pytorch.org/).
@@ -23,7 +24,6 @@ Finally, install the project.
 
 
 ```bash
-source venv/bin/activate
 pip install -e .
 ```
 
