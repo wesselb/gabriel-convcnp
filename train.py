@@ -171,7 +171,7 @@ for epoch in range(args.epochs):
             label="Prediction",
         )
         tweak(legend_loc="best")
-        plt.savefig(wd.file(f"epoch{epoch}_classification.pdf"))
+        plt.savefig(wd.file(f"epoch{epoch + 1}_classification.pdf"))
         plt.close()
 
         # Plot for regression:
@@ -202,5 +202,5 @@ for epoch in range(args.epochs):
             style="pred",
         )
         tweak(legend_loc="best")
-        plt.savefig(wd.file(f"epoch{epoch}_regression.pdf"))
+        plt.savefig(wd.file(f"epoch{epoch + 1}_regression.pdf"))
         plt.close()
