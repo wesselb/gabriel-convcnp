@@ -196,8 +196,8 @@ for epoch in range(args.epochs):
         )
         plt.fill_between(
             take_first(batch["x_target_reg"]),
-            take_first(reg_mean - 1.92 * reg_std),
-            take_first(reg_mean + 1.92 * reg_std),
+            take_first(reg_mean - 1.96 * reg_std),
+            take_first(reg_mean + 1.96 * reg_std),
             style="pred",
         )
         tweak(legend_loc="best")
