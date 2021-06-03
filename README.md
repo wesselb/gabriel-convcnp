@@ -36,3 +36,5 @@ To get started, run
 python train.py --help
 ```
 
+By default, results will be produced in `_experiments/experiment`.
+
