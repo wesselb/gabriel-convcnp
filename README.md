@@ -14,7 +14,7 @@ cd gabriel-convcnp
 Make and activate a virtual environment.
 
 ```bash
-virtualenv -p python3 venv
+virtualenv -p python3.8 venv
 ```
 
 Install an appropriate GPU-accelerated version of [PyTorch](https://pytorch.org/).
