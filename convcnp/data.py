@@ -1,4 +1,5 @@
 import abc
+from typing import Optional
 
 import lab as B
 import numpy as np
@@ -52,8 +53,11 @@ class DataGenerator(metaclass=abc.ABCMeta):
             vector: Sample at inputs `x`.
         """
 
-    def generate_batch(self):
+    def generate_batch(self, device: Optional[str] = None):
         """Generate a batch.
+
+        Args:
+            device (str, optional): Name of device.
 
         Returns:
             dict: A task, which is a dictionary with keys `x`, `y`, `x_context`,
@@ -97,20 +101,23 @@ class DataGenerator(metaclass=abc.ABCMeta):
             k: torch.tensor(
                 B.uprank(B.stack(*v, axis=0), rank=3),
                 dtype=torch.float32,
-                device=B.Device.active_name,
+                device=device,
             )
             for k, v in task.items()
         }
 
         return task
 
-    def epoch(self):
+    def epoch(self, device: Optional[str] = None):
         """Construct a generator for an epoch.
+
+        Args:
+            device (str, optional): Name of device.
 
         Returns:
             generator: Generator for an epoch.
         """
-        return (self.generate_batch() for _ in range(self.num_batches))
+        return (self.generate_batch(device) for _ in range(self.num_batches))
 
 
 class GPGenerator(DataGenerator):

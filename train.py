@@ -16,6 +16,7 @@ else:
     device = "cpu"
 
 
+
 def split_off_classification(batch):
     """Split off a classification data set."""
     n_context = B.shape(batch["x_context"], 1)
@@ -116,7 +117,7 @@ for epoch in range(args.epochs):
 
     # Run training epoch.
     print("Training...")
-    for batch in gen_train.epoch():
+    for batch in gen_train.epoch(device):
         batch = split_off_classification(batch)
         loss = compute_loss(model, batch)
         # Perform gradient step.
@@ -128,7 +129,7 @@ for epoch in range(args.epochs):
         # Compute eval loss.
         print("Evaluating...")
         losses = []
-        for batch in gen_test.epoch():
+        for batch in gen_test.epoch(device):
             batch = split_off_classification(batch)
             losses.append(compute_loss(model, batch))
         losses = B.to_numpy(losses)
@@ -137,7 +138,7 @@ for epoch in range(args.epochs):
 
         # Produce some plots.
         print("Plotting...")
-        batch = gen_test.generate_batch()
+        batch = gen_test.generate_batch(device)
         batch = split_off_classification(batch)
         with B.device(device):
             # Set `x_target` to a dense linspace for the plots, but save the original
