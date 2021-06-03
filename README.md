@@ -7,17 +7,18 @@ An implementation of using the ConvCNP for regression and classification
 Clone and enter the repo.
 
 ```bash
-git clone https://github.com/wesselb/convcnp
-cd convcnp
+git clone https://github.com/wesselb/gabriel-convcnp
+cd gabriel-convcnp
 ```
 
-Finally, make and activate a virtual environment.
+Make and activate a virtual environment.
 
 ```bash
-virtualenv -p python3 venv
+virtualenv -p python3.8 venv
 ```
 
 Install an appropriate GPU-accelerated version of [PyTorch](https://pytorch.org/).
+
 Finally, install the project.
 
 
