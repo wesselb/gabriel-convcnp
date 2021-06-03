@@ -1,11 +1,11 @@
 import argparse
 
 import lab.torch as B
+import matplotlib.pyplot as plt
 import numpy as np
 import torch
 from wbml.experiment import WorkingDirectory
 from wbml.plot import tweak
-import matplotlib.pyplot as plt
 
 from convcnp import GPGenerator, DualConvCNP
 
@@ -14,7 +14,6 @@ if torch.cuda.is_available():
     device = "cuda"
 else:
     device = "cpu"
-
 
 
 def split_off_classification(batch):
