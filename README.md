@@ -47,7 +47,7 @@ By default, results will be produced in `_experiments/experiment`, but you can c
 
 Some details:
 
-* `--alpha` controls the weights (value between `0` and `1`) assigned to the classification loss. By default, it is `0.5`.
+* `--alpha` controls the weight (value between `0` and `1`) assigned to the classification loss. By default, it is `0.5`.
 
 *
     The data is generated from a sample of a GP on `[-2, 2]` with inputs uniformly sampled from this interval.
