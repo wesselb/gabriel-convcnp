@@ -139,7 +139,7 @@ for epoch in range(args.epochs):
         print("Plotting...")
         batch = gen_test.generate_batch(device)
         batch = split_off_classification(batch)
-        with B.device(device):
+        with B.on_device(device):
             # Set `x_target` to a dense linspace for the plots, but save the original
             # target inputs.
             x_target_class = batch["x_target_class"]
