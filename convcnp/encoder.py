@@ -15,7 +15,7 @@ class SetConv1dEncoder(nn.Module):
         )
 
     def forward(self, xz, z, x_grid):
-        with B.device(B.device(z)):
+        with B.on_device(z):
             # Construct density channel.
             density_channel = B.ones(B.dtype(z), *B.shape(z)[:2], 1)
 
