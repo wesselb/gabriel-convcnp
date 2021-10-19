@@ -50,7 +50,7 @@ class DualConvCNP(nn.Module):
         batch = {k: convert_batched_data(v) for k, v in batch.items()}
 
         # Construct discretisation.
-        with B.device(B.device(batch["x_context_class"])):
+        with B.on_device(batch["x_context_class"]):
             x_grid = self.disc(
                 batch["x_context_class"],
                 batch["x_target_class"],
